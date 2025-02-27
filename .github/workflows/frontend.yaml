@@ -17,12 +17,12 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-            az storage blob upload-batch --account-name staticsitehostingproject --account-key ${{ secrets.AZURE_STORAGE_KEY }} --auth-mode key --overwrite -d '$web' -s .
+            az storage blob upload-batch --account-name mystorageacct2390 --account-key ${{ secrets.AZURE_STORAGE_KEY }} --auth-mode key --overwrite -d '$web' -s .
     - name: Purge CDN endpoint
       uses: azure/CLI@v1
       with:
         inlineScript: |
-           az cdn endpoint purge --content-paths  "/*" --profile-name "StaticSiteHostingProject" --name "staticsiteamc" --resource-group "StaticSiteHostingProjectRG"
+           az cdn endpoint purge --content-paths  "/*" --profile-name "StaticHostingProject" --name "staticsiteamc" --resource-group "test_rg123"
   # Azure logout
     - name: logout
       run: |
